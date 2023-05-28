@@ -1,6 +1,7 @@
 <?php
 
-
+use Slim\Psr7\Request;
+use Slim\Psr7\Response;
 use Slim\Routing\RouteCollectorProxy;
 $app->group('/api', function (RouteCollectorProxy $group) {
     $group->get('/', 'App\Controllers\HomeController:index');
@@ -9,3 +10,5 @@ $app->group('/api', function (RouteCollectorProxy $group) {
     $group->put('/user/{id}', 'App\Controllers\UserController:update');
     $group->delete('/user/{id}', 'App\Controllers\UserController:delete');
 });
+
+$app->get('/', 'App\Controllers\HomeController:index');
