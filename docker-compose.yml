@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   app:
-    image: php:alpine
-    volumes:
-      - ./src/:/var/www/
-    working_dir: /var/www/public
-    command: php -S 0.0.0.0:8080
+    build: .
     ports:
-      - 80:8080
+      - "80:8080"
+    volumes:
+      - ./src/:/var/www
+    working_dir: /var/www/public
+    command: php -S 0.0.0.0:8080    
   db:
     image: mysql:5.7
     restart: always
